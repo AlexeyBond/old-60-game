@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dnk2iw71ca6ui"]
+
+[ext_resource type="Script" uid="uid://brajbpig57fe1" path="res://chair/chair_spawner.gd" id="1_ljjxt"]
+[ext_resource type="PackedScene" uid="uid://balo6ti87nvac" path="res://chair/chair.tscn" id="2_g5ghk"]
+
+[node name="ChairSpawner" type="Node3D" unique_id=76758603]
+script = ExtResource("1_ljjxt")
+chair_scene = ExtResource("2_g5ghk")
+num_x = 25
+num_y = 25
+stride = 2.0

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://balo6ti87nvac"]
+
+[ext_resource type="PackedScene" uid="uid://dm3eleolo05fu" path="res://chair/parts/surface-0.tscn" id="1_c722s"]
+[ext_resource type="Script" uid="uid://bmf36dy8q3rsv" path="res://chair/chair.gd" id="1_mye3h"]
+[ext_resource type="PackedScene" uid="uid://dw0xu6lgw7t2m" path="res://chair/parts/back-0.tscn" id="2_aojfu"]
+[ext_resource type="PackedScene" uid="uid://c4b3r4ndv0e8k" path="res://chair/parts/feet-0.tscn" id="3_aojfu"]
+[ext_resource type="PackedScene" uid="uid://bwa4s4mipxsvb" path="res://chair/parts/surface-1.tscn" id="3_va1oq"]
+[ext_resource type="PackedScene" uid="uid://bm5jhem4u4fmm" path="res://chair/parts/back-1.tscn" id="4_m43nl"]
+[ext_resource type="PackedScene" uid="uid://d0mlt0hidtk5q" path="res://chair/parts/feet-1.tscn" id="6_ptghn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7ten"]
+size = Vector3(0.49902344, 1.0252686, 0.5144043)
+
+[node name="Chair" type="RigidBody3D" unique_id=2135012231]
+script = ExtResource("1_mye3h")
+surface_scenes = Array[PackedScene]([ExtResource("1_c722s"), ExtResource("3_va1oq")])
+back_scenes = Array[PackedScene]([ExtResource("2_aojfu"), ExtResource("4_m43nl")])
+feet_scenes = Array[PackedScene]([ExtResource("3_aojfu"), ExtResource("6_ptghn")])
+
+[node name="surface" type="Marker3D" parent="." unique_id=1337230789]
+
+[node name="Surface" parent="surface" unique_id=1913002094 instance=ExtResource("1_c722s")]
+
+[node name="back" type="Marker3D" parent="." unique_id=1177608261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.019162338, -0.2250844)
+
+[node name="Back" parent="back" unique_id=383323214 instance=ExtResource("2_aojfu")]
+
+[node name="feet-rf" type="Marker3D" parent="." unique_id=177934691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0.2)
+
+[node name="Feet0" parent="feet-rf" unique_id=644764438 instance=ExtResource("3_aojfu")]
+
+[node name="feet-lf" type="Marker3D" parent="." unique_id=819101166]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.2, 0, 0.2)
+
+[node name="Feet0" parent="feet-lf" unique_id=1495004824 instance=ExtResource("3_aojfu")]
+
+[node name="feet-lb" type="Marker3D" parent="." unique_id=904063860]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.2, 0, -0.2)
+
+[node name="Feet0" parent="feet-lb" unique_id=1164056979 instance=ExtResource("3_aojfu")]
+
+[node name="feet-rb" type="Marker3D" parent="." unique_id=26224452]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0.2, 0, -0.2)
+
+[node name="Feet0" parent="feet-rb" unique_id=387959806 instance=ExtResource("3_aojfu")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=882151215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00048828125, 0.009216309, 0.0020751953)
+shape = SubResource("BoxShape3D_f7ten")

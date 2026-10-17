@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://cmlreoo2qwhp4" path="res://fpc/Map/Materials/floor_structure_material.tres" id="3_f3nrc"]
 [ext_resource type="PackedScene" uid="uid://cvt7tbvtbyjc7" path="res://prop_light.tscn" id="4_kllft"]
 [ext_resource type="PackedScene" uid="uid://xxa0b37v5dlr" path="res://door.tscn" id="5_1g8t3"]
+[ext_resource type="PackedScene" uid="uid://dnk2iw71ca6ui" path="res://chair/chair_spawner.tscn" id="6_ws2c7"]
 
 [sub_resource type="Environment" id="Environment_f7ten"]
 ambient_light_source = 2
@@ -495,3 +496,6 @@ transform = Transform3D(-1, 0, -1.2665987e-07, 0, 1, 0, 1.2665987e-07, 0, -1, 0.
 location_dx = 1
 next_entrance_direction = "NW"
 this_entrance_direction = "SE"
+
+[node name="ChairSpawner" parent="." unique_id=76758603 instance=ExtResource("6_ws2c7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36901045, 0)

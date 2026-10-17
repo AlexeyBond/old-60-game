@@ -12,6 +12,9 @@ func apply_location_delta(dx: int, dy: int):
 	location_x = (location_x + dx + SIZE_X) % SIZE_X
 	location_y = (location_y + dy + SIZE_Y) % SIZE_Y
 
+func get_room_seed() -> int:
+	return location_x + location_y * SIZE_X
+
 func get_entrance_door() -> Door:
 	for door in get_tree().get_nodes_in_group(&"doors"):
 		door = door as Door

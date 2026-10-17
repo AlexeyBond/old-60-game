@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d0mlt0hidtk5q"]
+
+[ext_resource type="Script" uid="uid://1oo66gufkedy" path="res://chair/randomize_material.gd" id="1_hs0dp"]
+[ext_resource type="Material" uid="uid://csey5t06p51o7" path="res://chair/materials/m2.tres" id="2_ibumn"]
+[ext_resource type="Material" uid="uid://compdsj231rq7" path="res://chair/materials/m1.tres" id="3_sr1rh"]
+
+[node name="Feet0" type="Node3D" unique_id=644764438]
+script = ExtResource("1_hs0dp")
+allowed_materials = Array[Material]([ExtResource("2_ibumn"), ExtResource("3_sr1rh")])
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=1585957248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+radius = 0.026
+height = 0.5

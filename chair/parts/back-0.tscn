@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dw0xu6lgw7t2m"]
+
+[ext_resource type="Script" uid="uid://1oo66gufkedy" path="res://chair/randomize_material.gd" id="1_62g5w"]
+[ext_resource type="Material" uid="uid://compdsj231rq7" path="res://chair/materials/m1.tres" id="2_byvlh"]
+[ext_resource type="Material" uid="uid://csey5t06p51o7" path="res://chair/materials/m2.tres" id="3_2ell1"]
+
+[node name="Back" type="Node3D" unique_id=395769419]
+script = ExtResource("1_62g5w")
+allowed_materials = Array[Material]([ExtResource("2_byvlh"), ExtResource("3_2ell1")])
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=466894092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2530144, 0)
+size = Vector3(0.5, 0.5, 0.05)

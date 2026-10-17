@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bwa4s4mipxsvb"]
+
+[ext_resource type="Script" uid="uid://1oo66gufkedy" path="res://chair/randomize_material.gd" id="1_2gmlv"]
+[ext_resource type="Material" uid="uid://compdsj231rq7" path="res://chair/materials/m1.tres" id="2_7auqy"]
+[ext_resource type="Material" uid="uid://csey5t06p51o7" path="res://chair/materials/m2.tres" id="3_tx3d2"]
+
+[node name="Surface" type="Node3D" unique_id=1996911747]
+script = ExtResource("1_2gmlv")
+allowed_materials = Array[Material]([ExtResource("2_7auqy"), ExtResource("3_tx3d2")])
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=136454830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025000002, 0)
+size = Vector3(0.5, 0.1, 0.5)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGBox3D" unique_id=2102666052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.16948435, 0)
+operation = 2
+radius = 0.19569778
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="CSGBox3D" unique_id=1671481113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0.16948435, 0)
+operation = 2
+radius = 0.19569778

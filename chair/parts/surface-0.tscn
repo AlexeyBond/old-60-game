@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dm3eleolo05fu"]
+
+[ext_resource type="Script" uid="uid://1oo66gufkedy" path="res://chair/randomize_material.gd" id="1_b1dqv"]
+[ext_resource type="Material" uid="uid://compdsj231rq7" path="res://chair/materials/m1.tres" id="2_vw8ws"]
+[ext_resource type="Material" uid="uid://csey5t06p51o7" path="res://chair/materials/m2.tres" id="3_7bgbw"]
+
+[node name="Surface" type="Node3D" unique_id=1996911747]
+script = ExtResource("1_b1dqv")
+allowed_materials = Array[Material]([ExtResource("2_vw8ws"), ExtResource("3_7bgbw")])
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=136454830]
+size = Vector3(0.5, 0.05, 0.5)

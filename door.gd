@@ -22,7 +22,7 @@ func _on_exit_area_body_entered(body: Node3D) -> void:
 func transport():
 	GlobalState.apply_location_delta(location_dx, location_dy)
 	GlobalState.next_entrance_direction = next_entrance_direction
-	GlobalState.change_level(target_level)
+	GlobalState.change_level.call_deferred(target_level)
 
 func enter_player():
 	print("Entering from door %s" % [this_entrance_direction])
