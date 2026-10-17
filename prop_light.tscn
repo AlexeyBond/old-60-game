@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cvt7tbvtbyjc7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0f02a"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 14.82
+
+[node name="CSGBox3D" type="CSGBox3D" unique_id=1080456166]
+size = Vector3(2, 0.1, 2)
+material = SubResource("StandardMaterial3D_0f02a")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=2052785255]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.07758826, 0)
+light_energy = 12.868

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bxcyq3wd6syna"]
+
+[ext_resource type="Script" uid="uid://y7evbvpqy2t8" path="res://global_state.gd" id="1_low6g"]
+
+[node name="GlobalState" type="Node" unique_id=1432667083]
+script = ExtResource("1_low6g")

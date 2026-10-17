@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://xxa0b37v5dlr"]
+
+[ext_resource type="Script" uid="uid://cm71j3nl3wxyc" path="res://door.gd" id="1_0phs7"]
+[ext_resource type="Material" uid="uid://3ub3li5nvjsw" path="res://fpc/Map/Materials/not_floor_structure_material.tres" id="1_v6xrn"]
+[ext_resource type="Shader" uid="uid://0u40ojuw6t8i" path="res://black.gdshader" id="2_0phs7"]
+[ext_resource type="PackedScene" uid="uid://bmad66wsbkom3" path="res://player.tscn" id="3_4xadh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_62lx6"]
+render_priority = 0
+shader = ExtResource("2_0phs7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7ten"]
+size = Vector3(1.2, 3.1000001, 0.6)
+
+[node name="Door" type="Node3D" unique_id=850697297 groups=["doors"]]
+script = ExtResource("1_0phs7")
+target_level = "uid://dx626sh4q1otl"
+player_scene = ExtResource("3_4xadh")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=668217150]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=229379064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 1.65, 0.049999982)
+size = Vector3(2.2, 3.3, 0.3)
+material = ExtResource("1_v6xrn")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=308812766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.940697e-08, 1.5500001, 0)
+material_override = ExtResource("1_v6xrn")
+operation = 2
+size = Vector3(1.8000001, 3.1000001, 1)
+material = ExtResource("1_v6xrn")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=778383732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.940697e-08, 1.5500001, 0.050000012)
+size = Vector3(1.8000001, 3.1000001, 0.1)
+material = SubResource("ShaderMaterial_62lx6")
+
+[node name="exit_area" type="Area3D" parent="." unique_id=223753391]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="exit_area" unique_id=1066607084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5500001, 0)
+shape = SubResource("BoxShape3D_f7ten")
+
+[node name="entrance" type="Marker3D" parent="." unique_id=453060306]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, 0.90000004, 2.5)
+
+[connection signal="body_entered" from="exit_area" to="." method="_on_exit_area_body_entered"]

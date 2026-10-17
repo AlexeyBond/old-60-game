@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bmad66wsbkom3"]
+
+[ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://fpc/PlayerCharacter/player_character_scene.tscn" id="1_4flbx"]
+
+[node name="Player" type="Node3D" unique_id=1051214955]
+
+[node name="PlayerCharacter" parent="." unique_id=1631114635 groups=["player"] instance=ExtResource("1_4flbx")]
+crouch_hitbox_height = 1.0
+crouch_model_height = 0.5
+check_on_ready_if_inputs_registered = false
