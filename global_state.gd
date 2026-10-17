@@ -24,7 +24,17 @@ func get_entrance_door() -> Door:
 	assert(false, "No door for entrance %s among %d doors" % [next_entrance_direction, get_tree().get_node_count_in_group(&"doors")])
 	return null
 
+func _ready() -> void:
+	$AnimationPlayer.play("fade-in")
+
+var next_transition: String = ""
+
 func change_level(next_level: String):
-	print("change level to %s, location=(%d;%d)", next_level, location_x, location_y)
-	var err := get_tree().change_scene_to_file(next_level)
+	next_transition = next_level
+	$AnimationPlayer.play("fade-out")
+
+func execute_transition():
+	print("change level to %s, location=(%d;%d)", next_transition, location_x, location_y)
+	var err := get_tree().change_scene_to_file(next_transition)
 	assert(err == OK)
+	$AnimationPlayer.play("fade-in")

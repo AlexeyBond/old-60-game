@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bl3dsm1rwjsde"]
+
+[ext_resource type="Script" uid="uid://1oo66gufkedy" path="res://chair/randomize_material.gd" id="1_y6x3m"]
+[ext_resource type="Material" uid="uid://compdsj231rq7" path="res://chair/materials/m1.tres" id="2_odfix"]
+[ext_resource type="Material" uid="uid://csey5t06p51o7" path="res://chair/materials/m2.tres" id="3_e6dem"]
+
+[node name="Surface" type="Node3D" unique_id=1996911747]
+script = ExtResource("1_y6x3m")
+allowed_materials = Array[Material]([ExtResource("2_odfix"), ExtResource("3_e6dem")])
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=136454830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025000002, 0)
+size = Vector3(0.5, 0.1, 0.5)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="CSGBox3D" unique_id=2102666052]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4966314, 0)
+operation = 2
+radial_segments = 24
+rings = 24

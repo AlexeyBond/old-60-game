@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://chugsojv4q5cl"]
+
+[ext_resource type="Script" uid="uid://bu0ffjcbwivny" path="res://banner.gd" id="1_2iyem"]
+[ext_resource type="Texture2D" uid="uid://carcdoytf57d2" path="res://banners/banner1.png" id="2_05pf3"]
+[ext_resource type="Texture2D" uid="uid://cu84hxy0eocvb" path="res://banners/banner2.png" id="3_v1jxp"]
+[ext_resource type="Texture2D" uid="uid://dl3d6gah47w24" path="res://banners/banner3.png" id="4_ujg7t"]
+[ext_resource type="Texture2D" uid="uid://b27kxlvfrkbsq" path="res://banners/banner4.png" id="5_fwiyp"]
+[ext_resource type="Texture2D" uid="uid://2bh4kjnpe454" path="res://banners/banner5.png" id="6_ct5df"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aq7ry"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_f7ten"]
+material = SubResource("StandardMaterial3D_aq7ry")
+size = Vector2(6, 3)
+
+[node name="Banner" type="MeshInstance3D" unique_id=1755015220]
+mesh = SubResource("QuadMesh_f7ten")
+script = ExtResource("1_2iyem")
+textures = Array[Texture2D]([ExtResource("2_05pf3"), ExtResource("3_v1jxp"), ExtResource("4_ujg7t"), ExtResource("5_fwiyp"), ExtResource("6_ct5df")])

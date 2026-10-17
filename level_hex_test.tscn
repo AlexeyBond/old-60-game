@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xxa0b37v5dlr" path="res://door.tscn" id="5_1g8t3"]
 [ext_resource type="PackedScene" uid="uid://dnk2iw71ca6ui" path="res://chair/chair_spawner.tscn" id="6_ws2c7"]
 [ext_resource type="PackedScene" uid="uid://inp3s153rc8x" path="res://loader.tscn" id="7_i760v"]
+[ext_resource type="PackedScene" uid="uid://chugsojv4q5cl" path="res://banner.tscn" id="8_nof7f"]
 
 [sub_resource type="Environment" id="Environment_f7ten"]
 ambient_light_source = 2
@@ -503,3 +504,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36901045, 0)
 
 [node name="Loader" parent="." unique_id=1725857112 instance=ExtResource("7_i760v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8505931, -0.05000925, 35.55759)
+
+[node name="Banner" parent="." unique_id=1755015220 instance=ExtResource("8_nof7f")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -11.028078, 3.9616764, 43.2151)

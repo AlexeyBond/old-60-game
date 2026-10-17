@@ -4,9 +4,18 @@
 [ext_resource type="Material" uid="uid://3ub3li5nvjsw" path="res://fpc/Map/Materials/not_floor_structure_material.tres" id="1_v6xrn"]
 [ext_resource type="PackedScene" uid="uid://bmad66wsbkom3" path="res://player.tscn" id="3_4xadh"]
 [ext_resource type="Material" uid="uid://bbejwpp70ink0" path="res://black.tres" id="4_50cdl"]
+[ext_resource type="Script" uid="uid://dv5tmsnabwe2f" path="res://door_display.gd" id="5_y5njw"]
+[ext_resource type="PackedScene" uid="uid://dicdcnoa553rk" path="res://door_display.tscn" id="6_4xadh"]
+[ext_resource type="AudioStream" uid="uid://dds80pi3kw8fa" path="res://snd/684538__pnmcarrierailfan__doors-wood-door-with-latch_1.mp3" id="7_6hwww"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f7ten"]
 size = Vector3(1.2, 3.1000001, 0.6)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50cdl"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_f7ten"]
+material = SubResource("StandardMaterial3D_50cdl")
+size = Vector2(2, 1)
 
 [node name="Door" type="Node3D" unique_id=850697297 groups=["doors"]]
 script = ExtResource("1_0phs7")
@@ -42,5 +51,19 @@ shape = SubResource("BoxShape3D_f7ten")
 
 [node name="entrance" type="Marker3D" parent="." unique_id=453060306]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, 0.90000004, 2.5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=281905552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 0.148606)
+mesh = SubResource("QuadMesh_f7ten")
+script = ExtResource("5_y5njw")
+
+[node name="SubViewport" type="SubViewport" parent="MeshInstance3D" unique_id=1546944141]
+canvas_item_default_texture_filter = 0
+
+[node name="DoorDisplay" parent="MeshInstance3D/SubViewport" unique_id=1244052018 instance=ExtResource("6_4xadh")]
+
+[node name="open_player" type="AudioStreamPlayer3D" parent="." unique_id=994128837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.2)
+stream = ExtResource("7_6hwww")
 
 [connection signal="body_entered" from="exit_area" to="." method="_on_exit_area_body_entered"]

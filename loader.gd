@@ -4,8 +4,8 @@ extends Node3D
 @export_range(1.0, 100.0) var appear_distance: float = 50.0
 
 func _ready() -> void:
-	#hide()
-	pass
+	hide()
+	relocate()
 
 
 func _process(delta: float) -> void:
@@ -51,6 +51,9 @@ func _process(delta: float) -> void:
 
 func relocate():
 	var chairs := get_tree().get_nodes_in_group(&"chairs")
+	if chairs.size() == 0:
+		return
+
 	var chair = chairs[randi_range(0, chairs.size()-1)] as Node3D
 	global_position = chair.global_position + Vector3.UP * 0.5
 

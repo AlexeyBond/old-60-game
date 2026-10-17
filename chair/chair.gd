@@ -4,6 +4,8 @@ extends RigidBody3D
 @export var back_scenes: Array[PackedScene]
 @export var feet_scenes: Array[PackedScene]
 
+var seed: int
+
 func _ready() -> void:
 	self.randomize(RandomNumberGenerator.new())
 
@@ -19,6 +21,7 @@ func pick_scene(scenes: Array[PackedScene], target_node: Node3D, rng: RandomNumb
 	target_node.add_child(instance)
 
 func randomize(rng: RandomNumberGenerator):
+	seed = rng.state
 	pick_scene(surface_scenes, $surface, rng)
 	pick_scene(back_scenes, $back, rng)
 	pick_scene(feet_scenes, $"feet-rf", rng)

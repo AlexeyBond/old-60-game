@@ -20,6 +20,7 @@ func _on_exit_area_body_entered(body: Node3D) -> void:
 	transport()
 
 func transport():
+	$open_player.play()
 	GlobalState.apply_location_delta(location_dx, location_dy)
 	GlobalState.next_entrance_direction = next_entrance_direction
 	GlobalState.change_level.call_deferred(target_level)

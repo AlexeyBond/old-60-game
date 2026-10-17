@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dicdcnoa553rk"]
+
+[ext_resource type="Script" uid="uid://bjlwx88hx6v28" path="res://door_display_content.gd" id="1_qd6rr"]
+
+[node name="DoorDisplay" type="CanvasLayer" unique_id=1244052018]
+script = ExtResource("1_qd6rr")
+
+[node name="Label" type="Label" parent="." unique_id=1490306568]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "TEST
+123
+ЙЦУКЕН"
+horizontal_alignment = 1
