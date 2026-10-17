@@ -11,7 +11,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_f7ten"]
 size = Vector3(0.49902344, 1.0252686, 0.5144043)
 
-[node name="Chair" type="RigidBody3D" unique_id=2135012231]
+[node name="Chair" type="RigidBody3D" unique_id=2135012231 groups=["chairs"]]
 script = ExtResource("1_mye3h")
 surface_scenes = Array[PackedScene]([ExtResource("1_c722s"), ExtResource("3_va1oq")])
 back_scenes = Array[PackedScene]([ExtResource("2_aojfu"), ExtResource("4_m43nl")])

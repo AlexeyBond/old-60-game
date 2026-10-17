@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://inp3s153rc8x"]
+
+[ext_resource type="Script" uid="uid://bsg52vffweto0" path="res://loader.gd" id="1_xgyeg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgyeg"]
+transparency = 3
+alpha_hash_scale = 0.61
+alpha_antialiasing_mode = 1
+alpha_antialiasing_edge = 0.5
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Loader" type="Node3D" unique_id=1725857112]
+script = ExtResource("1_xgyeg")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=547195861]
+material_override = SubResource("StandardMaterial3D_xgyeg")
+transparency = 0.45
+cast_shadow = 0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1090767114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 1.5500002, 0)
+size = Vector3(0.15, 3.1000001, 0.15)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1877939284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 3.45, 0)
+size = Vector3(0.15, 1.1, 0.15)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D" unique_id=357095434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0057373084, 2.85, -0.035974123)
+size = Vector3(0.07075195, 0.1, 0.07805176)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1869444062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3.4499998, 0)
+size = Vector3(0.15, 1.1, 0.15)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=306276700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 1.5000001, 0)
+size = Vector3(0.15, 3, 0.15)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=805750703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -1.4901161e-08)
+size = Vector3(0.6, 1.2, 0.4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1530441528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4901161e-08, 4.4, -1.4901161e-08)
+size = Vector3(0.4, 0.4, 0.4)
+
+[node name="Timer" type="Timer" parent="." unique_id=837281653]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

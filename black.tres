@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bbejwpp70ink0"]
+
+[ext_resource type="Shader" uid="uid://0u40ojuw6t8i" path="res://black.gdshader" id="1_kjsvf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kjsvf")
