@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dx1t12muo0rf0"]
+
+[ext_resource type="Script" uid="uid://bvyaiww6o3cng" path="res://checkout_box.gd" id="1_han8d"]
+[ext_resource type="Material" uid="uid://3ub3li5nvjsw" path="res://fpc/Map/Materials/not_floor_structure_material.tres" id="1_y8nu5"]
+[ext_resource type="AudioStream" uid="uid://d0ul4jpdcm8e0" path="res://snd/no.ogg" id="3_xv0xj"]
+[ext_resource type="AudioStream" uid="uid://b5lgjj686wiie" path="res://snd/yes.ogg" id="4_vqgq6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7ten"]
+size = Vector3(2.508789, 0.65097046, 1.4858398)
+
+[node name="CheckoutBox" type="Node3D" unique_id=255908337]
+script = ExtResource("1_han8d")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1345874807]
+material_override = ExtResource("1_y8nu5")
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=29089742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9802322e-08, 0.35, 5.9604645e-08)
+size = Vector3(2.6000001, 0.7, 1.6)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2107186456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54999995, 5.9604645e-08)
+operation = 2
+size = Vector3(2.4, 0.90000004, 1.4)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=642858009]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2065296971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0053710938, 0.33735657, -0.0056152344)
+shape = SubResource("BoxShape3D_f7ten")
+
+[node name="no_player" type="AudioStreamPlayer3D" parent="." unique_id=318129893]
+stream = ExtResource("3_xv0xj")
+
+[node name="yes_player" type="AudioStreamPlayer3D" parent="." unique_id=1480901313]
+stream = ExtResource("4_vqgq6")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

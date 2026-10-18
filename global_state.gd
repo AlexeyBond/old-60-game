@@ -52,3 +52,23 @@ func drop_chair():
 
 func holds_chair_with_seed(s: int) -> bool:
 	return holds_chair and held_chair_seed == s
+
+var order_set: bool = false
+var order_desc: String = ""
+var order_seed: int = 0
+
+func sync_order(preview: Chair):
+	if order_set:
+		preview.restore_from_seed(order_seed)
+		assert(preview.description == order_desc)
+	else:
+		var rng := RandomNumberGenerator.new()
+		rng.randomize()
+		preview.randomize(rng)
+		order_set = true
+		order_desc = preview.description
+		order_seed = preview.chair_seed
+
+func commit_order(preview: Chair):
+	order_set = false
+	sync_order(preview)

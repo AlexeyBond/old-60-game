@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cra7k3sqjismi"]
+
+[ext_resource type="Script" uid="uid://dxjbyuk66xvf2" path="res://intro.gd" id="1_s2ta7"]
+
+[node name="Intro" type="CanvasLayer" unique_id=205489073]
+script = ExtResource("1_s2ta7")
+game_scene = "uid://dpfjdeyi3axxu"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1857622998]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="intro_text" type="Label" parent="ColorRect" unique_id=493218186]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Поздравляем!
+
+Вы были выбраны добровольцем на должность сборцика заказов в торговом центре Вавилон.
+
+Вы ыли назначены в отдел детских стульев.
+
+Отправляйтесь на склад и найдите стул, соответствующий текущему заказу.
+
+Удачи!
+                                                        "
+horizontal_alignment = 1

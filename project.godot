@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="old-60-game"
-run/main_scene="uid://dx626sh4q1otl"
+run/main_scene="uid://cra7k3sqjismi"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 

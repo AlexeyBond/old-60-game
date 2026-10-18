@@ -6,9 +6,12 @@
 [sub_resource type="GDScript" id="GDScript_f7ten"]
 script/source = "extends Node3D
 
-func preview_seed(s: int):
+func preview_seed(s: int) -> Chair:
 	$Chair.restore_from_seed(s)
-	pass
+	return $Chair
+
+func get_chair() -> Chair:
+	return $Chair
 
 func _process(delta: float) -> void:
 	$camera_container.rotate(Vector3.UP, delta * 1.0)

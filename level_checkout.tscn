@@ -5,6 +5,8 @@
 [ext_resource type="Material" uid="uid://cmlreoo2qwhp4" path="res://fpc/Map/Materials/floor_structure_material.tres" id="2_yu5dg"]
 [ext_resource type="PackedScene" uid="uid://xxa0b37v5dlr" path="res://door.tscn" id="3_6gaiy"]
 [ext_resource type="PackedScene" uid="uid://cvt7tbvtbyjc7" path="res://prop_light.tscn" id="4_gtypi"]
+[ext_resource type="PackedScene" uid="uid://bhdvsv5h64wqg" path="res://chair/chair_preview.tscn" id="6_6gaiy"]
+[ext_resource type="PackedScene" uid="uid://dx1t12muo0rf0" path="res://checkout_box.tscn" id="7_gtypi"]
 
 [sub_resource type="Environment" id="Environment_yu5dg"]
 ambient_light_source = 2
@@ -21,6 +23,28 @@ fog_light_energy = 0.25
 fog_density = 0.0
 fog_height = 9.94
 fog_height_density = -0.0561
+
+[sub_resource type="Environment" id="Environment_f7ten"]
+
+[sub_resource type="World3D" id="World3D_6gaiy"]
+environment = SubResource("Environment_f7ten")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62lx6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_f7ten"]
+material = SubResource("StandardMaterial3D_62lx6")
+size = Vector2(3, 3)
+
+[sub_resource type="GDScript" id="GDScript_rygrr"]
+script/source = "extends MeshInstance3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	var mat := mesh.surface_get_material(0) as StandardMaterial3D
+	mat.albedo_texture = %order_preview_vp.get_texture()
+	GlobalState.sync_order(%ordered_chair_preview.get_chair())
+"
 
 [node name="LevelCheckout" type="Node3D" unique_id=1674746865]
 
@@ -49,3 +73,28 @@ environment = SubResource("Environment_yu5dg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=764775859]
 transform = Transform3D(0.9659258, 0.0669873, 0.25, -0.25881907, 0.25000003, 0.9330128, 0, -0.96592593, 0.25881907, 0, 9, 0)
+
+[node name="order_preview_vp" type="SubViewport" parent="." unique_id=1476406403]
+unique_name_in_owner = true
+world_3d = SubResource("World3D_6gaiy")
+
+[node name="ordered_chair_preview" parent="order_preview_vp" unique_id=599789265 instance=ExtResource("6_6gaiy")]
+unique_name_in_owner = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="order_preview_vp" unique_id=515068667]
+
+[node name="Label" type="Label" parent="order_preview_vp/CanvasLayer" unique_id=631383034]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Заказ:"
+
+[node name="order_display" type="MeshInstance3D" parent="." unique_id=1241726207]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.42476, 0, 0)
+mesh = SubResource("QuadMesh_f7ten")
+script = SubResource("GDScript_rygrr")
+
+[node name="CheckoutBox" parent="." unique_id=255908337 node_paths=PackedStringArray("order_preview") instance=ExtResource("7_gtypi")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -6.0153017, -2.4999964, -0.016202629)
+order_preview = NodePath("../order_preview_vp/ordered_chair_preview")
