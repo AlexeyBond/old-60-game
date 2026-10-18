@@ -27,6 +27,14 @@ func get_entrance_door() -> Door:
 func _ready() -> void:
 	$AnimationPlayer.play("fade-in")
 
+@export_file("*.tscn") var restart_level: String
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(&"restart"):
+		change_level(restart_level)
+		order_set = false
+		holds_chair = false
+
 var next_transition: String = ""
 
 func change_level(next_level: String):

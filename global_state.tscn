@@ -71,6 +71,7 @@ _data = {
 
 [node name="GlobalState" type="Node" unique_id=1432667083]
 script = ExtResource("1_low6g")
+restart_level = "uid://cra7k3sqjismi"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1902874868]
 layer = 10000
