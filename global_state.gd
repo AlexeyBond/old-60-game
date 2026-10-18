@@ -34,6 +34,8 @@ func _process(delta: float) -> void:
 		change_level(restart_level)
 		order_set = false
 		order_seed = 0
+		location_x = 0
+		location_y = 0
 		holds_chair = false
 
 var next_transition: String = ""
