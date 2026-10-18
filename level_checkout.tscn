@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dpfjdeyi3axxu"]
+
+[ext_resource type="PackedScene" uid="uid://b1u3doec7owb6" path="res://player_spawn.tscn" id="1_tf3v2"]
+[ext_resource type="PackedScene" uid="uid://bmad66wsbkom3" path="res://player.tscn" id="2_6gaiy"]
+[ext_resource type="Material" uid="uid://cmlreoo2qwhp4" path="res://fpc/Map/Materials/floor_structure_material.tres" id="2_yu5dg"]
+[ext_resource type="PackedScene" uid="uid://xxa0b37v5dlr" path="res://door.tscn" id="3_6gaiy"]
+[ext_resource type="PackedScene" uid="uid://cvt7tbvtbyjc7" path="res://prop_light.tscn" id="4_gtypi"]
+
+[sub_resource type="Environment" id="Environment_yu5dg"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.39
+tonemap_mode = 2
+tonemap_exposure = 1.16
+tonemap_white = 2.27
+tonemap_agx_contrast = 1.32
+glow_enabled = true
+glow_intensity = 1.13
+fog_enabled = true
+fog_light_energy = 0.25
+fog_density = 0.0
+fog_height = 9.94
+fog_height_density = -0.0561
+
+[node name="LevelCheckout" type="Node3D" unique_id=1674746865]
+
+[node name="PlayerSpawn" parent="." unique_id=848077925 instance=ExtResource("1_tf3v2")]
+player_scene = ExtResource("2_6gaiy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1495649530]
+material_override = ExtResource("2_yu5dg")
+use_collision = true
+size = Vector3(20, 20, 20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=1680778345]
+operation = 2
+size = Vector3(15, 5, 10)
+
+[node name="Door" parent="." unique_id=850697297 instance=ExtResource("3_6gaiy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 7.5, -2.4, 0)
+next_entrance_direction = "Z"
+this_entrance_direction = "Z"
+
+[node name="CSGBox3D2" parent="." unique_id=1080456166 instance=ExtResource("4_gtypi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 2.5, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=233274662]
+environment = SubResource("Environment_yu5dg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=764775859]
+transform = Transform3D(0.9659258, 0.0669873, 0.25, -0.25881907, 0.25000003, 0.9330128, 0, -0.96592593, 0.25881907, 0, 9, 0)

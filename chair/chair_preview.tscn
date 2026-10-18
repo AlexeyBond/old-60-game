@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bhdvsv5h64wqg"]
+
+[ext_resource type="PackedScene" uid="uid://balo6ti87nvac" path="res://chair/chair.tscn" id="1_rygrr"]
+[ext_resource type="Material" uid="uid://cmlreoo2qwhp4" path="res://fpc/Map/Materials/floor_structure_material.tres" id="2_34tk3"]
+
+[sub_resource type="GDScript" id="GDScript_f7ten"]
+script/source = "extends Node3D
+
+func preview_seed(s: int):
+	$Chair.restore_from_seed(s)
+	pass
+
+func _process(delta: float) -> void:
+	$camera_container.rotate(Vector3.UP, delta * 1.0)
+"
+
+[sub_resource type="Environment" id="Environment_f7ten"]
+
+[node name="ChairPreview" type="Node3D" unique_id=599789265]
+script = SubResource("GDScript_f7ten")
+
+[node name="Chair" parent="." unique_id=2135012231 instance=ExtResource("1_rygrr")]
+process_mode = 4
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1944707313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5513627, 0)
+material_override = ExtResource("2_34tk3")
+size = Vector3(1, 0.06933594, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=947524616]
+environment = SubResource("Environment_f7ten")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=93688880]
+transform = Transform3D(0.49999997, -0.61237246, 0.61237246, 0, 0.7071068, 0.7071068, -0.86602557, -0.35355338, 0.35355338, 0, 1.6286237, 0)
+
+[node name="camera_container" type="Node3D" parent="." unique_id=274047313]
+
+[node name="Camera3D" type="Camera3D" parent="camera_container" unique_id=1518506523]
+transform = Transform3D(1, 0, 0, 0, 0.87893283, 0.47694558, 0, -0.47694558, 0.87893283, 0, 0.6580761, 1.1969693)
+current = true

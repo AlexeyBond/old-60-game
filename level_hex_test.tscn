@@ -39,10 +39,19 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="GDScript" id="GDScript_nof7f"]
+script/source = "extends CSGBox3D
+
+
+func _ready() -> void:
+	if GlobalState.location_x != 0 or GlobalState.location_y != 0:
+		queue_free()
+"
+
 [node name="LevelHexTest" type="Node3D" unique_id=1751204050]
 
 [node name="PlayerSpawn" parent="." unique_id=1635631735 instance=ExtResource("1_uqkny")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1445273, 37.1)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17, 1.1445273, 28.099998)
 player_scene = ExtResource("2_f3nrc")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=686780141]
@@ -507,3 +516,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8505931, -0.05000925, 35.5
 
 [node name="Banner" parent="." unique_id=1755015220 instance=ExtResource("8_nof7f")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -11.028078, 3.9616764, 43.2151)
+
+[node name="checkout_lift" type="CSGBox3D" parent="." unique_id=319709513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 16.5, 29)
+material_override = ExtResource("3_f3nrc")
+use_collision = true
+size = Vector3(3, 34, 3)
+script = SubResource("GDScript_nof7f")
+
+[node name="Door" parent="checkout_lift" unique_id=2063444559 instance=ExtResource("5_1g8t3")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.4321136, -16.484224, 0)
+target_level = "uid://dpfjdeyi3axxu"
+next_entrance_direction = "Z"
+this_entrance_direction = "Z"

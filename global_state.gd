@@ -34,7 +34,21 @@ func change_level(next_level: String):
 	$AnimationPlayer.play("fade-out")
 
 func execute_transition():
-	print("change level to %s, location=(%d;%d)", next_transition, location_x, location_y)
+	print("change level to %s, location=(%d;%d)" % [next_transition, location_x, location_y])
 	var err := get_tree().change_scene_to_file(next_transition)
 	assert(err == OK)
 	$AnimationPlayer.play("fade-in")
+
+
+var held_chair_seed: int
+var holds_chair: bool
+
+func take_chair(c: Chair):
+	held_chair_seed = c.chair_seed
+	holds_chair = true
+
+func drop_chair():
+	holds_chair = false
+
+func holds_chair_with_seed(s: int) -> bool:
+	return holds_chair and held_chair_seed == s

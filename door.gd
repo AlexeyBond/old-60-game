@@ -26,7 +26,7 @@ func transport():
 	GlobalState.change_level.call_deferred(target_level)
 
 func enter_player():
-	print("Entering from door %s" % [this_entrance_direction])
+	print("Entering from door %s, gt=%s" % [this_entrance_direction, $entrance.global_transform])
 	var player = player_scene.instantiate() as Node3D
 	player.global_transform = $entrance.global_transform
-	get_parent().add_child.call_deferred(player)
+	get_tree().current_scene.add_child.call_deferred(player)

@@ -1,10 +1,44 @@
 [gd_scene format=3 uid="uid://bmad66wsbkom3"]
 
 [ext_resource type="PackedScene" uid="uid://bwggrf7sbmkcv" path="res://fpc/PlayerCharacter/player_character_scene.tscn" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://b22mgawmgj334" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://balo6ti87nvac" path="res://chair/chair.tscn" id="2_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://bhdvsv5h64wqg" path="res://chair/chair_preview.tscn" id="4_hqtel"]
 
-[node name="Player" type="Node3D" unique_id=1051214955]
+[sub_resource type="Environment" id="Environment_f7ten"]
+
+[sub_resource type="World3D" id="World3D_f7ten"]
+environment = SubResource("Environment_f7ten")
+
+[node name="Player" type="Node3D" unique_id=1051214955 node_paths=PackedStringArray("pl")]
+script = ExtResource("1_onrkg")
+pl = NodePath("PlayerCharacter")
+chair_scene = ExtResource("2_i3pqv")
 
 [node name="PlayerCharacter" parent="." unique_id=1631114635 groups=["player"] instance=ExtResource("1_4flbx")]
 crouch_hitbox_height = 1.0
 crouch_model_height = 0.5
 check_on_ready_if_inputs_registered = false
+
+[node name="chair_preview_layer" type="CanvasLayer" parent="." unique_id=1890290001]
+unique_name_in_owner = true
+visible = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="chair_preview_layer" unique_id=1952553239]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -222.0
+offset_right = 138.0
+offset_bottom = -26.0
+grow_vertical = 0
+
+[node name="SubViewport" type="SubViewport" parent="chair_preview_layer/SubViewportContainer" unique_id=361057400]
+world_3d = SubResource("World3D_f7ten")
+handle_input_locally = false
+size = Vector2i(100, 150)
+render_target_update_mode = 4
+
+[node name="ChairPreview" parent="chair_preview_layer/SubViewportContainer/SubViewport" unique_id=599789265 instance=ExtResource("4_hqtel")]
+unique_name_in_owner = true
