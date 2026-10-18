@@ -4,6 +4,11 @@
 [ext_resource type="Script" uid="uid://b22mgawmgj334" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://balo6ti87nvac" path="res://chair/chair.tscn" id="2_i3pqv"]
 [ext_resource type="PackedScene" uid="uid://bhdvsv5h64wqg" path="res://chair/chair_preview.tscn" id="4_hqtel"]
+[ext_resource type="Script" uid="uid://b32cw5xiwshk3" path="res://player_chair_hit_area.gd" id="4_sweqy"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_f7ten"]
+height = 0.24487305
+radius = 0.5786133
 
 [sub_resource type="Environment" id="Environment_f7ten"]
 
@@ -19,6 +24,15 @@ chair_scene = ExtResource("2_i3pqv")
 crouch_hitbox_height = 1.0
 crouch_model_height = 0.5
 check_on_ready_if_inputs_registered = false
+
+[node name="chair_hit_area" type="Area3D" parent="PlayerCharacter" unique_id=15539087]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_sweqy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerCharacter/chair_hit_area" unique_id=630678155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.61242676, 0)
+shape = SubResource("CylinderShape3D_f7ten")
 
 [node name="chair_preview_layer" type="CanvasLayer" parent="." unique_id=1890290001]
 unique_name_in_owner = true
@@ -38,7 +52,9 @@ grow_vertical = 0
 world_3d = SubResource("World3D_f7ten")
 handle_input_locally = false
 size = Vector2i(100, 150)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="ChairPreview" parent="chair_preview_layer/SubViewportContainer/SubViewport" unique_id=599789265 instance=ExtResource("4_hqtel")]
 unique_name_in_owner = true
+
+[connection signal="body_entered" from="PlayerCharacter/chair_hit_area" to="PlayerCharacter/chair_hit_area" method="_on_body_entered"]

@@ -5,8 +5,8 @@ var location_x: int = 0
 var location_y: int = 0
 var next_entrance_direction: String = ''
 
-const SIZE_X: int = 256
-const SIZE_Y: int = 256
+const SIZE_X: int = 1000
+const SIZE_Y: int = 1000
 
 func apply_location_delta(dx: int, dy: int):
 	location_x = (location_x + dx + SIZE_X) % SIZE_X
