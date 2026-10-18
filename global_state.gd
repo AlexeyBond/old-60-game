@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"restart"):
 		change_level(restart_level)
 		order_set = false
+		order_seed = 0
 		holds_chair = false
 
 var next_transition: String = ""
@@ -54,6 +55,7 @@ var holds_chair: bool
 func take_chair(c: Chair):
 	held_chair_seed = c.chair_seed
 	holds_chair = true
+	print("Picked Chair, seed=", held_chair_seed)
 
 func drop_chair():
 	holds_chair = false
@@ -71,8 +73,13 @@ func sync_order(preview: Chair):
 		assert(preview.description == order_desc)
 	else:
 		var rng := RandomNumberGenerator.new()
-		rng.randomize()
-		preview.randomize(rng)
+
+		if order_seed == 0:
+			rng.state = 3756623538388029204
+		else:
+			rng.randomize()
+
+		preview._randomize(rng)
 		order_set = true
 		order_desc = preview.description
 		order_seed = preview.chair_seed
